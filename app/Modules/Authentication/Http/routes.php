@@ -18,7 +18,7 @@ $api->version(['version' => 'v1', 'prefix' => 'api'], function ($api) {
     
     $api->group(['prefix' => 'authentication', 'namespace' => 'App\Http\Controllers'], function ($api) {
         //dd("grupo");// Endpoints registered here will have the "foo" middleware applied.        
-        $api->get('/', 'HomeController@getIndex');
+        $api->get('/', 'HomeController@index');
     });
 });
 

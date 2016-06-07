@@ -219,4 +219,6 @@ return [
 
     ],
 
+    'jwt' => 'Dingo\Api\Auth\Provider\JWT',
+
 ];

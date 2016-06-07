@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
         "dingo/api": "1.0.*@dev",
-        "caffeinated/modules": "^3.0"
+        "caffeinated/modules": "^3.0",
+        "tymon/jwt-auth": "0.5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

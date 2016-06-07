@@ -151,7 +151,8 @@ return [
         */
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Modules\ModulesServiceProvider::class,
-        Dingo\Api\Provider\LaravelServiceProvider::class
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
     ],
 
@@ -208,6 +209,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Module' => Caffeinated\Modules\Facades\Module::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
 
     ],
 
