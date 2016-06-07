@@ -1,0 +1,9 @@
+{
+	"name": "Authentication",
+	"slug": "authentication",
+	"namespace": "Authentication",
+	"version": "1.0",
+	"author": "Jose Alejandro Ricardo Lara <ricardoingenierias@gmail.com>",
+	"license": "MIT",
+	"description": "Modulo encargado de la autenticación de usuarios del sistema"
+}

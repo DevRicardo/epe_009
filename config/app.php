@@ -145,6 +145,14 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /*
+        *  Providers aditional
+        */
+        Collective\Html\HtmlServiceProvider::class,
+        Caffeinated\Modules\ModulesServiceProvider::class,
+        Dingo\Api\Provider\LaravelServiceProvider::class
+
     ],
 
     /*
@@ -192,6 +200,14 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+
+        /*
+        * Aditional
+        */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Module' => Caffeinated\Modules\Facades\Module::class,
 
     ],
 
