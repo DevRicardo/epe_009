@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\BaseController;
 
+use JWTAuth;
+use Validator;
+use Config;
+use App\User;
+use Dingo\Api\Routing\Helpers;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Password;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Dingo\Api\Exception\ValidationHttpException;
+
 class HomeController extends BaseController
 {
     /**
@@ -18,6 +28,27 @@ class HomeController extends BaseController
     {
         //
         return $this->response->errorBadRequest();
+    }
+
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only(['email', 'password']);
+        $validator = Validator::make($credentials, [
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        if($validator->fails()) {
+            throw new ValidationHttpException($validator->errors()->all());
+        }
+        try {
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return $this->response->errorUnauthorized();
+            }
+        } catch (JWTException $e) {
+            return $this->response->error('could_not_create_token', 500);
+        }
+        return response()->json(compact('token'));
     }
 
     /**

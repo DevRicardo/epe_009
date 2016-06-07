@@ -14,11 +14,12 @@ $api = app('Dingo\Api\Routing\Router');
 
 
 
-$api->version(['version' => 'v1', 'prefix' => 'api'], function ($api) {
+$api->version(['version' => 'v1', 'prefix' => 'api','protected' => true], function ($api) {
     
     $api->group(['prefix' => 'authentication', 'namespace' => 'App\Http\Controllers'], function ($api) {
         //dd("grupo");// Endpoints registered here will have the "foo" middleware applied.        
         $api->get('/', 'HomeController@index');
+        $api->post('/login', 'HomeController@login');
     });
 });
 
