@@ -2,6 +2,7 @@
 namespace App\Transformer;
 
 use League\Fractal\TransformerAbstract;
+use App\User;
 
 class UserTransformer extends TransformerAbstract
 {
@@ -16,7 +17,12 @@ class UserTransformer extends TransformerAbstract
             'id'            => (int) $user->id,
             'name'          => $user->name,
             'email'         => $user->email,
-            'password'      => $user->password
+            'links'         => [
+                [
+                    'rel' => 'self',
+                    'uri' => '/books/'.'5',
+                ]
+            ]
         ];
     }
 }

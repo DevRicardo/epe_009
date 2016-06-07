@@ -33,10 +33,12 @@ class HomeController extends BaseController
     public function index()
     {
         //
-        $user = User::all();
+        $users = User::paginate(5);
 
-        return $this->response->item($user, new UserTransformer);
-    }
+        return $this->response->paginator($users, new UserTransformer);
+
+
+    }  
 
 
     public function login(Request $request)

@@ -15,10 +15,15 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->delete();
 
-        User::create([
-        'name' => 'jose Ricardo',
-        'email' => 'jose@gmail.com',
-        'password' => Hash::make('123456')
-        ]);
+        for ($i=1; $i < 10 ; $i++) { 
+            # code...
+
+            User::create([
+            'name' => 'jose Ricardo_'.$i,
+            'email' => 'jose_'.$i.'@gmail.com',
+            'password' => Hash::make('123456')
+            ]);
+        }
+
     }
 }
