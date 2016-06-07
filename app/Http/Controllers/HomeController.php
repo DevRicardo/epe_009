@@ -16,9 +16,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Password;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Dingo\Api\Exception\ValidationHttpException;
+use App\Transformer\UserTransformer;
 
 class HomeController extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->middleware('jwt.auth', ['except' => ['login']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +33,9 @@ class HomeController extends BaseController
     public function index()
     {
         //
-        return $this->response->errorBadRequest();
+        $user = User::all();
+
+        return $this->response->item($user, new UserTransformer);
     }
 
 
